@@ -12,6 +12,7 @@ exports.initialization = async (req, res, next) => {
   }
 }
 
+
 /*Each time a user open the extension it will perform login action to get user token and save to browser*/ 
 exports.login = async (req, res, next) => {
   try {
