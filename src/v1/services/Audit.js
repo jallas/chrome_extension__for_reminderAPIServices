@@ -32,6 +32,7 @@ class Audit {
 
 
     async log(record) {
+        console.log(record);
         try {
             if (typeof record === "string") record = Audit.types[record]
             await AuditLogs.query().insert({

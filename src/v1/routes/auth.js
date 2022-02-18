@@ -6,7 +6,10 @@ const auth = require("../controllers/auth")
 router.post("/login", validate({
     body: Joi.object({
         email: Joi.string(),
-        device: Joi.string(), device_os: Joi.string()
+        device_name: Joi.string(),
+        device_os: Joi.string(),
+        access_token: Joi.string(),
+        user_name: Joi.string()
     }),
 }), auth.login);
 

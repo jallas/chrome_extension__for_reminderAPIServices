@@ -5,7 +5,7 @@ const UsersModel = require("../models/Users")
 
 exports.validateUser = function () {
   return async (req, res, next) => {
-    console.log(req.headers.authorization);
+    console.log(req.headers.authorization, 'auth');
     try {
       if (req.headers.authorization?.split(' ')[0].toLowerCase() !== 'bearer') return res.status(401).json({ status: "error", message: messages[401] });
       const token = req.headers.authorization?.split(' ')[1]

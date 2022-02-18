@@ -1,0 +1,11 @@
+###
+Post http://localhost:15011/v1/auth/onboard
+content-type: application/json
+
+{
+    "email": "09058177355",
+	"access_token": "Ibifuro#1",
+    "device_name":"Desktop",
+    "user_name":"Uogochukwu",
+    "device_os":"Linux"
+}

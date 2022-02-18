@@ -3,9 +3,9 @@ const services = require("../services");
 /*The first time a user open the extesnion the user details will be saved into a database, this will enable fetch related data */
 exports.initialization = async (req, res, next) => {
   try {
-    const { email, device, device_os } = req.body
+    const { email, access_token, user_name,  device_name, device_os } = req.body
     const { success, status = 200, message, data } = await new services.Auth()
-      .initialize(email, device, device_os)
+      .initialize(email, access_token, user_name,  device_name, device_os)
     return res.status(status).json({ status: success ? "success" : "error", message, data })
   } catch (error) {
     next(error)

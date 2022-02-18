@@ -6,11 +6,14 @@ const message = require("../messages");
 
 exports.create = async (req, res, next) => {
   try {
-    const { event, event_date, details, participants } = req.body
+    const { title, event_date, details, participants } = req.body
+
+    console.log(req.user);
     const reminder = await models.Reminders.query().insertGraphAndFetch({
-      event, event_date, details,
+      user_id: req.user.id,
+      title, event_date, details,
       participants: participants.map(participants => ({
-        features: participants.email,
+        email: participants,
         created_by: req.user.id,
         created_on: new Date()
       })),
