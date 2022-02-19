@@ -4,6 +4,7 @@ const reminder = require("../controllers/reminder")
 const { validateUser } = require("../middlewares/auth")
 
 router.post("/create", validateUser(), reminder.create);
+router.get("/", validateUser(), reminder.fetchReminders);
 
 router.post("/update", validate({
     body: Joi.object({
@@ -14,6 +15,7 @@ router.post("/update", validate({
     }),
 }), validateUser(), reminder.update);
 
-router.delete("/delete", validateUser(), reminder.update);
+router.put("/cancel/:id", validateUser(), reminder.cancel);
+router.put("/notification/:id", validateUser(), reminder.notification);
 
 module.exports = router
