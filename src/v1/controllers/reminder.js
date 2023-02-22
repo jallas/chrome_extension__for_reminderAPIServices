@@ -1,6 +1,4 @@
-//const services = require("../services")
 const models = require("../models");
-//const utils = require("../../utils");
 const Errors = require("../services/Errors");
 const message = require("../messages");
 const { sendEmail } = require("../../api/gmail");
